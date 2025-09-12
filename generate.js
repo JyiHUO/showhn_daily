@@ -142,6 +142,26 @@ async function run() {
         });
       }
 
+      // 添加folo RSS阅读器认证信息
+      markdown += `## RSS订阅认证信息\n\n`;
+      markdown += `### XML格式\n`;
+      markdown += `\`\`\`xml\n`;
+      markdown += `<follow_challenge>\n`;
+      markdown += `<feedId>189360018282312704</feedId>\n`;
+      markdown += `<userId>167262699469937664</userId>\n`;
+      markdown += `</follow_challenge>\n`;
+      markdown += `\`\`\`\n\n`;
+      
+      markdown += `### JSON格式\n`;
+      markdown += `\`\`\`json\n`;
+      markdown += `{\n`;
+      markdown += `  "follow_challenge": {\n`;
+      markdown += `    "feed_id": "189360018282312704",\n`;
+      markdown += `    "user_id": "167262699469937664"\n`;
+      markdown += `  }\n`;
+      markdown += `}\n`;
+      markdown += `\`\`\`\n\n`;
+
       const markdownFilePath = path.join(dateDir, `release-${formattedDate}.md`);
       fs.writeFileSync(markdownFilePath, markdown);
       

@@ -2,8 +2,6 @@
 
 每日自动汇总 Show HN 最热门的开发者项目，通过 GitHub Actions 自动生成 Release。
 
-feedId:189360018282312704+userId:167262699469937664
-
 ## 功能特性
 
 - 📅 每日自动抓取两天前的 Show HN 数据
