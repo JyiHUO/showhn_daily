@@ -1,0 +1,54 @@
+name: Daily Show HN Release
+
+on:
+  schedule:
+    # 每天早上8点运行 (UTC时间，北京时间16点)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  generate-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Generate markdown content
+      run: node generate.js
+
+    - name: Get current date
+      id: date
+      run: |
+        echo "date=$(date -d '2 days ago' '+%Y-%m-%d')" >> $GITHUB_OUTPUT
+        echo "tag=v$(date -d '2 days ago' '+%Y.%m.%d')" >> $GITHUB_OUTPUT
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add releases/${{ steps.date.outputs.date }}/ release-body.md
+        git diff --staged --quiet || git commit -m "Daily update: ${{ steps.date.outputs.date }}"
+        git push
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.date.outputs.tag }}
+        release_name: "Show HN 今日精选 - ${{ steps.date.outputs.date }}"
+        body_path: ./release-body.md
+        draft: false
+        prerelease: false
