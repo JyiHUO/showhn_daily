@@ -1590,3 +1590,23 @@ llmhub.dev 让AI大模型（LLM）拥有自己的“电脑”——实际的虚�
 
 ---
 
+## RSS订阅认证信息
+
+### XML格式
+```xml
+<follow_challenge>
+<feedId>189360018282312704</feedId>
+<userId>167262699469937664</userId>
+</follow_challenge>
+```
+
+### JSON格式
+```json
+{
+  "follow_challenge": {
+    "feed_id": "189360018282312704",
+    "user_id": "167262699469937664"
+  }
+}
+```
+
