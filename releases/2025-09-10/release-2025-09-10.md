@@ -1,5 +1,7 @@
 # Show HN 今日精选：2025-09-10最热门的开发者项目展示
 
+> 欢迎点赞支持该项目：https://github.com/JyiHUO/showhn_daily
+
 **发布日期：** 2025-09-11
 
 ## 今日简报
