@@ -117,22 +117,22 @@ async function run() {
           }
           
           // 核心功能
-          if (item.productFAQ && item.productFAQ.coreFunctionList && Array.isArray(item.productFAQ.coreFunctionList)) {
-            markdown += `**核心功能：**\n`;
-            item.productFAQ.coreFunctionList.forEach((func, index) => {
-              markdown += `${index + 1}. ${func}\n`;
-            });
-            markdown += `\n`;
-          }
+        //   if (item.productFAQ && item.productFAQ.coreFunctionList && Array.isArray(item.productFAQ.coreFunctionList)) {
+        //     markdown += `**核心功能：**\n`;
+        //     item.productFAQ.coreFunctionList.forEach((func, index) => {
+        //       markdown += `${index + 1}. ${func}\n`;
+        //     });
+        //     markdown += `\n`;
+        //   }
           
           // 使用案例
-          if (item.productFAQ && item.productFAQ.showCases && Array.isArray(item.productFAQ.showCases)) {
-            markdown += `**使用案例：**\n`;
-            item.productFAQ.showCases.forEach((useCase, index) => {
-              markdown += `${index + 1}. ${useCase}\n`;
-            });
-            markdown += `\n`;
-          }
+        //   if (item.productFAQ && item.productFAQ.showCases && Array.isArray(item.productFAQ.showCases)) {
+        //     markdown += `**使用案例：**\n`;
+        //     item.productFAQ.showCases.forEach((useCase, index) => {
+        //       markdown += `${index + 1}. ${useCase}\n`;
+        //     });
+        //     markdown += `\n`;
+        //   }
           
           // 点赞和评论数
           markdown += `❤️ ${item.likes}   💬 ${item.comments}\n\n`;
