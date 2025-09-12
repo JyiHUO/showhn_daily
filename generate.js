@@ -31,6 +31,7 @@ async function run() {
       
       // 文章标题和日期
       let markdown = `# ${articleData.articleTitle}\n\n`;
+      markdown += `> 欢迎点赞支持该项目：https://github.com/JyiHUO/showhn_daily\n\n`;
       markdown += `**发布日期：** ${articleData.publishDate}\n\n`;
       
       // 今日简报部分
