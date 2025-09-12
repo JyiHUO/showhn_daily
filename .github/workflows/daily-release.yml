@@ -35,7 +35,7 @@ jobs:
       id: date
       run: |
         echo "date=$(date -d '2 days ago' '+%Y-%m-%d')" >> $GITHUB_OUTPUT
-        echo "tag=v$(date -d '2 days ago' '+%Y.%m.%d')" >> $GITHUB_OUTPUT
+        echo "tag=v$(date -d '2 days ago' '+%Y.%m.%d').$(date '+%H%M')" >> $GITHUB_OUTPUT
 
     - name: Commit and push changes
       run: |
